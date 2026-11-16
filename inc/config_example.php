@@ -1,0 +1,1 @@
+<?php return ['host' => 'localhost', 'name' => 'legal_cms', 'user' => 'root', 'pass' => '', 'key' => 'CHANGE-THIS-TO-A-LONG-RANDOM-SECRET'];

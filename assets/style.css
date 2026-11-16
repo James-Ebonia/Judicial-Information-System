@@ -1,0 +1,724 @@
+/* ============================================================
+   Judicial Information System: main stylesheet
+   ============================================================ */
+
+:root {
+    --navy: #0a1d3b;
+    --navy2: #142b52;
+    --gold: #b8923a;
+    --bg: #f4f5f8;
+    --ink: #1b2438;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font: 15px/1.55 Georgia, "Times New Roman", serif;
+    color: var(--ink);
+    background: var(--bg);
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ---------- Sidebar ---------- */
+aside {
+    width: 230px;
+    background: var(--navy);
+    padding: 1rem 0;
+    flex-shrink: 0;
+}
+
+.c aside {
+    display: none;
+}
+
+.logo {
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: bold;
+    padding: 0 1.2rem 1rem;
+    border-bottom: 2px solid var(--gold);
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.08em;
+}
+
+.logo small {
+    display: block;
+    font: 11px Arial;
+    color: #c9d2e6;
+    letter-spacing: 0;
+}
+
+aside a {
+    display: block;
+    color: #dfe5f2;
+    padding: 0.65rem 1.2rem;
+    text-decoration: none;
+    font: 14px Arial;
+}
+
+aside a:hover {
+    background: var(--navy2);
+    border-left: 3px solid var(--gold);
+}
+
+.lo {
+    margin: 1rem 1.2rem;
+    background: none;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 0.4rem 0.9rem;
+    cursor: pointer;
+}
+
+/* ---------- Main area and header ---------- */
+main {
+    flex: 1;
+    min-width: 0;
+}
+
+header {
+    background: #fff;
+    border-bottom: 3px solid var(--gold);
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding: 0.7rem 1.2rem;
+}
+
+header h1 {
+    font-size: 1.2rem;
+    margin: 0;
+    flex: 1;
+    color: var(--navy);
+}
+
+header span {
+    font: 13px Arial;
+    color: #667;
+}
+
+header button {
+    border: 1px solid #ccd;
+    background: #fff;
+    padding: 0.3rem 0.7rem;
+    cursor: pointer;
+}
+
+section {
+    padding: 1.2rem;
+}
+
+/* ---------- Cards and grids ---------- */
+.g {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.card {
+    background: #fff;
+    border: 1px solid #dde;
+    border-top: 3px solid var(--navy);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    overflow-x: auto;
+}
+
+.card h3 {
+    margin: 0 0 0.6rem;
+    color: var(--navy);
+}
+
+.n {
+    font-size: 2rem;
+    color: var(--navy);
+    font-weight: bold;
+}
+
+/* ---------- Tables ---------- */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    font: 14px Arial;
+}
+
+th {
+    background: var(--navy);
+    color: #fff;
+    text-align: left;
+}
+
+th,
+td {
+    padding: 0.5rem;
+    border-bottom: 1px solid #e3e6ee;
+    vertical-align: top;
+}
+
+/* ---------- Forms and buttons ---------- */
+input,
+select,
+textarea {
+    font: 14px Arial;
+    padding: 0.45rem;
+    border: 1px solid #bbc;
+    width: 100%;
+    margin: 0.15rem 0 0.6rem;
+}
+
+.f {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0 1rem;
+}
+
+button.p,
+.btn {
+    background: var(--navy);
+    color: #fff;
+    border: 0;
+    padding: 0.55rem 1.1rem;
+    cursor: pointer;
+    font: 14px Arial;
+    text-decoration: none;
+    display: inline-block;
+    border-bottom: 2px solid var(--gold);
+}
+
+/* ---------- Status badges ---------- */
+.b {
+    font: 12px Arial;
+    padding: 2px 8px;
+    border-radius: 3px;
+    background: #e6e9f1;
+}
+
+.b-Pending {
+    background: #fff1cc;
+}
+
+.b-UnderInvestigation {
+    background: #dbe8ff;
+}
+
+.b-UnderProsecution {
+    background: #ffe0d6;
+}
+
+.b-AwaitingHearing {
+    background: #e9dcff;
+}
+
+.b-Ongoing {
+    background: #d5f2e3;
+}
+
+.b-Resolved {
+    background: #cfe9cf;
+}
+
+.b-Archived {
+    background: #ddd;
+}
+
+/* ---------- Misc ---------- */
+.bar {
+    background: var(--gold);
+    height: 14px;
+}
+
+.err {
+    background: #fde3e3;
+    padding: 0.6rem;
+    border-left: 4px solid #c33;
+}
+
+/* ---------- Login page ---------- */
+body.auth {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(160deg, #0a1d3b 0%, #142b52 100%);
+    padding: 1rem;
+}
+
+.login-box {
+    width: 100%;
+    max-width: 400px;
+    background: #fff;
+    padding: 2.2rem 2rem 1.6rem;
+    border-top: 5px solid var(--gold);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.brand {
+    text-align: center;
+    margin-bottom: 1.6rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid var(--gold);
+}
+
+.brand-mark {
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 0.25em;
+    padding-left: 0.25em;
+    /* balances the trailing letter-spacing so it stays centered */
+    color: var(--navy);
+    line-height: 1;
+}
+
+.brand-sub {
+    margin-top: 0.5rem;
+    font: 13px Arial, sans-serif;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+}
+
+.login-box label {
+    display: block;
+    font: 13px Arial, sans-serif;
+    color: #445;
+}
+
+.login-box label.center {
+    text-align: center;
+}
+
+.login-btn {
+    width: 100%;
+    margin-top: 0.4rem;
+    padding: 0.7rem;
+}
+
+.notice {
+    margin: 1.2rem 0 0;
+    text-align: center;
+    font: 12px Arial, sans-serif;
+    color: #667;
+}
+
+/* ---------- Show password button ---------- */
+.pw-wrap {
+    position: relative;
+    margin: 0.15rem 0 0.6rem;
+}
+
+.pw-wrap input {
+    margin: 0;
+    padding-right: 4.6rem;
+}
+
+.pw-toggle {
+    position: absolute;
+    top: 50%;
+    right: 0.4rem;
+    transform: translateY(-50%);
+    background: none;
+    border: 1px solid var(--gold);
+    color: var(--navy);
+    font: 12px Arial, sans-serif;
+    padding: 0.25rem 0.6rem;
+    cursor: pointer;
+}
+
+/* ---------- Searchable role dropdown ---------- */
+.combo {
+    position: relative;
+    margin: 0.15rem 0 0.6rem;
+}
+
+.combo input[type="text"] {
+    margin: 0;
+    text-align: center;
+    cursor: pointer;
+}
+
+.combo-list {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    max-height: 260px;
+    overflow-y: auto;
+    background: #fff;
+    border: 1px solid #bbc;
+    border-top: 0;
+    z-index: 20;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+}
+
+.combo.open .combo-list {
+    display: block;
+}
+
+.grp {
+    background: var(--bg);
+    color: var(--navy);
+    font: bold 12px Arial, sans-serif;
+    padding: 0.55rem 0.6rem;
+    text-align: center;
+    border-top: 1px solid #e3e6ee;
+    cursor: pointer;
+}
+
+.grp::after {
+    content: " \25BE";
+    /* down arrow */
+    color: var(--gold);
+}
+
+.grp.open::after {
+    content: " \25B4";
+    /* up arrow */
+}
+
+.grpbody {
+    display: none;
+}
+
+.grp.open+.grpbody,
+.combo-list.searching .grpbody {
+    display: block;
+}
+
+.opt {
+    padding: 0.45rem 0.6rem;
+    font: 14px Arial, sans-serif;
+    text-align: center;
+    cursor: pointer;
+}
+
+.opt:hover {
+    background: var(--navy);
+    color: #fff;
+}
+
+.none {
+    display: none;
+    padding: 0.7rem;
+    text-align: center;
+    font: 13px Arial, sans-serif;
+    color: #667;
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 760px) {
+    aside {
+        position: fixed;
+        z-index: 9;
+        height: 100%;
+        display: none;
+    }
+
+    .c aside {
+        display: block;
+    }
+}
+
+/* ---------- Print ---------- */
+@media print {
+
+    aside,
+    header button,
+    form {
+        display: none;
+    }
+
+    body {
+        display: block;
+    }
+}
+
+/* ---------- User management table ---------- */
+.card table td {
+    vertical-align: middle;
+}
+
+.card table td form {
+    margin: 0;
+}
+
+.card table td select {
+    margin: 0;
+}
+
+/* Action buttons: side by side, equal size */
+.acts {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: nowrap;
+}
+
+.acts button.p {
+    min-width: 6.5rem;
+    padding: 0.5rem 0.8rem;
+    white-space: nowrap;
+}
+
+button.p.danger {
+    background: #a32626;
+    border-bottom-color: #6e1515;
+}
+
+button.p.danger:hover {
+    background: #861e1e;
+}
+
+/* Lawyer type: field and type dropdowns side by side */
+.pick {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.pick select {
+    flex: 1 1 14rem;
+    min-width: 0;
+}
+
+/* ---------- Navigation ---------- */
+aside a.active {
+    background: var(--navy2);
+    border-left: 3px solid var(--gold);
+    color: #fff;
+}
+
+.count {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    font: bold 11px Arial;
+    padding: 1px 7px;
+    border-radius: 10px;
+    margin-left: .4rem;
+}
+
+.muted {
+    color: #667;
+    font: 13px Arial;
+}
+
+/* ---------- Dashboard ---------- */
+.welcome {
+    background: var(--navy);
+    color: #fff;
+    padding: 1.2rem 1.4rem;
+    border-left: 5px solid var(--gold);
+    margin-bottom: 1rem;
+}
+
+.welcome h2 {
+    margin: 0 0 .2rem;
+    font-size: 1.35rem;
+}
+
+.welcome p {
+    margin: 0;
+    color: #c9d2e6;
+    font: 13px Arial;
+}
+
+.alertbar {
+    background: #fff1cc;
+    border-left: 5px solid #e0a800;
+    padding: .7rem 1rem;
+    margin-bottom: 1rem;
+    font: 14px Arial;
+}
+
+.quick {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .6rem;
+    margin-bottom: 1rem;
+}
+
+.quick a {
+    background: #fff;
+    border: 1px solid var(--navy);
+    color: var(--navy);
+    padding: .5rem 1rem;
+    text-decoration: none;
+    font: 14px Arial;
+}
+
+.quick a:hover {
+    background: var(--navy);
+    color: #fff;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: .8rem;
+    margin-bottom: 1rem;
+}
+
+.stat {
+    display: block;
+    background: #fff;
+    border: 1px solid #dde;
+    border-left: 5px solid var(--navy);
+    padding: .8rem 1rem;
+    text-decoration: none;
+    color: var(--ink);
+}
+
+.stat:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
+}
+
+.stat b {
+    display: block;
+    font-size: 1.8rem;
+    color: var(--navy);
+}
+
+.stat span {
+    font: 13px Arial;
+    color: #556;
+}
+
+.s-Pending {
+    border-left-color: #e0a800;
+}
+
+.s-UnderInvestigation {
+    border-left-color: #3b78d8;
+}
+
+.s-UnderProsecution {
+    border-left-color: #d9622b;
+}
+
+.s-AwaitingHearing {
+    border-left-color: #8a5bd6;
+}
+
+.s-Ongoing {
+    border-left-color: #2e9e68;
+}
+
+.s-Resolved {
+    border-left-color: #4c9a4c;
+}
+
+.s-Archived {
+    border-left-color: #999;
+}
+
+.two {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem;
+    align-items: start;
+}
+
+@media (max-width: 900px) {
+    .two {
+        grid-template-columns: 1fr;
+    }
+}
+
+.hrow {
+    display: flex;
+    gap: .8rem;
+    align-items: center;
+    padding: .6rem 0;
+    border-bottom: 1px solid #e3e6ee;
+    font: 14px Arial;
+}
+
+.datebox {
+    min-width: 56px;
+    text-align: center;
+    background: var(--navy);
+    color: #fff;
+    padding: .3rem;
+    font: 12px Arial;
+}
+
+.datebox b {
+    display: block;
+    font-size: 1.3rem;
+}
+
+.note {
+    padding: .55rem .7rem;
+    border-left: 3px solid var(--gold);
+    background: var(--bg);
+    margin-bottom: .5rem;
+    font: 13px Arial;
+}
+
+.note.alert {
+    border-left-color: #c33;
+    background: #fde3e3;
+}
+
+.empty {
+    text-align: center;
+    padding: 1.2rem;
+    color: #667;
+    font: 14px Arial;
+}
+
+/* ---------- Register page ---------- */
+.login-box.wide {
+    max-width: 580px;
+}
+
+.rg {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 1rem;
+}
+
+@media (max-width: 560px) {
+    .rg {
+        grid-template-columns: 1fr;
+    }
+}
+
+.chk {
+    display: flex !important;
+    gap: .5rem;
+    align-items: flex-start;
+    margin: .3rem 0 .6rem;
+}
+
+.chk input {
+    width: auto;
+    margin: .2rem 0 0;
+}
+
+.okbox {
+    background: #e1f4e6;
+    padding: .8rem;
+    border-left: 4px solid #2e9e68;
+    font: 14px Arial;
+}
+
+/* ---------- Buttons ---------- */
+.acts {
+    display: flex;
+    gap: .5rem;
+    flex-wrap: nowrap;
+}
+
+.acts button.p {
+    min-width: 6.5rem;
+    white-space: nowrap;
+}
+
+button.p.danger {
+    background: #a32626;
+    border-bottom-color: #6e1515;
+}

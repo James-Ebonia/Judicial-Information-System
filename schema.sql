@@ -1,0 +1,32 @@
+CREATE TABLE IF NOT EXISTS users(
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(50) UNIQUE NOT NULL,
+  full_name VARCHAR(120) NOT NULL,
+  email VARCHAR(120),
+  role ENUM('admin','lawyer','prosecutor','judge','investigator','clerk') NOT NULL,
+  specialization VARCHAR(80) NULL,
+  password_hash VARCHAR(255) NOT NULL,
+  active TINYINT DEFAULT 1,
+  status VARCHAR(10) NOT NULL DEFAULT 'approved',
+  bar_roll_no VARCHAR(30) NULL,
+  bar_year SMALLINT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS login_history(id INT AUTO_INCREMENT PRIMARY KEY,username VARCHAR(50),role VARCHAR(100),success TINYINT,ip VARCHAR(45),at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+
+CREATE TABLE IF NOT EXISTS cases(id INT AUTO_INCREMENT PRIMARY KEY,case_ref VARCHAR(30) UNIQUE,title VARCHAR(255),category VARCHAR(80),classification VARCHAR(80),date_filed DATE,incident_date DATE NULL,incident_location VARCHAR(255),complainant VARCHAR(255),respondent VARCHAR(255),court VARCHAR(120),description TEXT,summary TEXT,status VARCHAR(30) DEFAULT 'Pending',lawyer_id INT NULL,prosecutor_id INT NULL,judge_id INT NULL,investigator_id INT NULL,created_by INT,created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,INDEX(status),INDEX(date_filed));
+
+CREATE TABLE IF NOT EXISTS witnesses(id INT AUTO_INCREMENT PRIMARY KEY,case_id INT,full_name VARCHAR(120),type VARCHAR(20),contact TEXT,relationship VARCHAR(120),statement TEXT,statement_date DATE NULL,created_by INT,created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,INDEX(case_id));
+
+CREATE TABLE IF NOT EXISTS blotters(id INT AUTO_INCREMENT PRIMARY KEY,blotter_ref VARCHAR(30),case_id INT,parent_id INT NULL,reported_at DATETIME,nature VARCHAR(120),location VARCHAR(255),reporter VARCHAR(120),persons TEXT,narrative TEXT,officer VARCHAR(120),status VARCHAR(40),created_by INT,created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,INDEX(case_id));
+
+CREATE TABLE IF NOT EXISTS documents(id INT AUTO_INCREMENT PRIMARY KEY,case_id INT,category VARCHAR(40),title VARCHAR(160),version INT DEFAULT 1,filename VARCHAR(255),stored VARCHAR(80),mime VARCHAR(100),size INT,description TEXT,uploaded_by INT,created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,INDEX(case_id));
+
+CREATE TABLE IF NOT EXISTS hearings(id INT AUTO_INCREMENT PRIMARY KEY,case_id INT,hearing_at DATETIME,location VARCHAR(160),purpose VARCHAR(255),outcome TEXT,created_by INT,INDEX(case_id),INDEX(hearing_at));
+
+CREATE TABLE IF NOT EXISTS notes(id INT AUTO_INCREMENT PRIMARY KEY,case_id INT,user_id INT,body TEXT,created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,INDEX(case_id));
+
+CREATE TABLE IF NOT EXISTS notifications(id INT AUTO_INCREMENT PRIMARY KEY,user_id INT,case_id INT,msg VARCHAR(255),created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,INDEX(user_id));
+
+CREATE TABLE IF NOT EXISTS audit_logs(id INT AUTO_INCREMENT PRIMARY KEY,user_id INT NULL,case_id INT NULL,action VARCHAR(60),details TEXT,ip VARCHAR(45),at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,INDEX(case_id));
