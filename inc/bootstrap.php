@@ -144,7 +144,7 @@ function top($t)
         $cur = 'cases.php';
     }
 
-    $nav = ['dashboard.php' => 'Dashboard', 'cases.php' => 'Cases', 'hearings.php' => 'Hearings'];
+    $nav = ['dashboard.php' => 'Dashboard', 'cases.php' => 'Cases', 'hearings.php' => 'Hearings', 'password.php' => 'Change password'];
     if ($u['role'] === 'admin') {
         $nav += ['users.php' => 'Users', 'audit.php' => 'Audit log'];
     }
